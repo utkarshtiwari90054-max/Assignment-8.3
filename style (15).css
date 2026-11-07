@@ -1,0 +1,139 @@
+:root {
+  --ink: #1c2a26;
+  --muted: #5d6b66;
+  --line: #d5ddd8;
+  --paper: #fbfaf6;
+  --card: #ffffff;
+  --accent: #1f6f5c;
+  --gap: 1.5rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
+
+/* ===== Grid container with named areas ===== */
+.page {
+  display: grid;
+  grid-template-columns: 3fr 1fr;            /* article gets 3x the sidebar */
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "header  header"
+    "nav     nav"
+    "article sidebar"
+    "footer  footer";
+  gap: var(--gap);
+  max-width: 1100px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* ===== Assign each section to a named area ===== */
+.masthead { grid-area: header; }
+.nav      { grid-area: nav; }
+.article  { grid-area: article; }
+.sidebar  { grid-area: sidebar; }
+.footer   { grid-area: footer; }
+
+/* ===== Header ===== */
+.masthead {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 3px double var(--ink);
+}
+.issue { font-family: "Segoe UI", system-ui, Arial, sans-serif; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.masthead h1 { font-size: 3.2rem; line-height: 1.1; }
+.tagline { font-style: italic; color: var(--muted); }
+
+/* ===== Navigation ===== */
+.nav {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  border-bottom: 1px solid var(--line);
+}
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem 2rem;
+  padding-bottom: .75rem;
+}
+.nav a { font-weight: 600; color: var(--muted); }
+.nav a:hover, .nav a.active { color: var(--accent); }
+
+/* ===== Main article ===== */
+.article { min-width: 0; }
+.kicker { font-family: "Segoe UI", system-ui, Arial, sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.article h2 { font-size: 2.3rem; line-height: 1.2; margin: .25rem 0 .5rem; }
+.byline { font-family: "Segoe UI", system-ui, Arial, sans-serif; font-size: .9rem; color: var(--muted); margin-bottom: 1.25rem; }
+.lead { font-size: 1.25rem; font-style: italic; margin-bottom: 1rem; }
+.article p { margin-bottom: 1rem; }
+.article h3 { font-size: 1.4rem; margin: 1.5rem 0 .5rem; }
+
+/* ===== Sidebar ===== */
+.sidebar {
+  display: grid;
+  align-content: start;                       /* stack widgets at the top */
+  gap: var(--gap);
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  min-width: 0;
+}
+.widget {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.widget h3 { font-size: 1.1rem; margin-bottom: .5rem; }
+.widget ol { padding-left: 1.2rem; list-style: decimal; }
+.widget li { padding: .25rem 0; }
+.btn {
+  display: inline-block;
+  margin-top: .5rem;
+  padding: .6rem 1.2rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== Footer ===== */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink);
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  font-size: .9rem;
+  color: var(--muted);
+}
+.footer ul { display: flex; gap: 1.5rem; }
+
+/* ===== Small screens: same areas, new arrangement ===== */
+@media (max-width: 800px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header"
+      "nav"
+      "article"
+      "sidebar"
+      "footer";
+    padding: 1rem;
+  }
+  .masthead h1 { font-size: 2.3rem; }
+  .article h2 { font-size: 1.8rem; }
+  .footer { justify-content: center; text-align: center; }
+}

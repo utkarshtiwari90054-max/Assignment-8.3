@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Daily Grid - Magazine Layout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="masthead">
+      <p class="issue">Issue 42 &middot; Saturday edition</p>
+      <h1>The Daily Grid</h1>
+      <p class="tagline">Stories laid out with care</p>
+    </header>
+
+    <nav class="nav" aria-label="Sections">
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">World</a></li>
+        <li><a href="#">Tech</a></li>
+        <li><a href="#">Culture</a></li>
+        <li><a href="#">Science</a></li>
+        <li><a href="#">Opinion</a></li>
+      </ul>
+    </nav>
+
+    <main class="article">
+      <p class="kicker">Design</p>
+      <h2>How a simple grid changed the way we read online</h2>
+      <p class="byline">By Staff Writer &middot; 6 min read</p>
+      <p class="lead">Long before screens, printers arranged columns of text on a grid so that readers always knew where to look next. The web has finally caught up.</p>
+      <p>For years, web pages were built from tables and floats, tools that were never meant for page layout. Designers worked around their limits with clever tricks, and readers often paid the price in cramped columns and awkward gaps.</p>
+      <p>Modern CSS Grid changed that. A designer can now describe a page as named regions, such as a header, a navigation bar, a main story and a sidebar, and let the browser place everything exactly where it belongs.</p>
+      <h3>One layout, many screens</h3>
+      <p>The same set of named areas can be rearranged for a small phone screen with only a few lines of code. The story moves to the top, the sidebar slides underneath, and nothing needs to be rewritten.</p>
+      <p>The result is pages that feel closer to a printed magazine: a clear hierarchy, generous white space, and a reading column that is easy on the eyes.</p>
+    </main>
+
+    <aside class="sidebar">
+      <section class="widget">
+        <h3>Trending</h3>
+        <ol>
+          <li>Five habits of clearer web pages</li>
+          <li>Why white space matters</li>
+          <li>A short history of the column</li>
+          <li>Typography tips for readers</li>
+        </ol>
+      </section>
+      <section class="widget">
+        <h3>Newsletter</h3>
+        <p>One short email each Saturday. No spam.</p>
+        <a href="#" class="btn">Subscribe</a>
+      </section>
+    </aside>
+
+    <footer class="footer">
+      <p>&copy; 2026 The Daily Grid. All rights reserved.</p>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </footer>
+
+  </div>
+</body>
+</html>
